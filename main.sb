@@ -1,2 +1,9 @@
-echo('Hello, world!')
+echo 'Hello, world!'
+echo 'Sherbet is nice.'
+
+identifier
 # This is a comment
+
+
+## This is also
+   a comment ##
