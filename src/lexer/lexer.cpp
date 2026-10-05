@@ -14,14 +14,6 @@ static const std::unordered_set<char> symbols = {
 	'\'',
 };
 
-// --- LexerError struct definition ---
-LexerError::LexerError(std::string message, int line, int col)
-	: message(message), line(line), col(col) {}
-
-// --- Lexer class definition ---
-Lexer::Lexer(std::string_view input)
-	: input(input), pos(0), line(1), col(1) {}
-
 char Lexer::peek(int offset) {
 	if (pos + offset < input.size()) {
 		return input[pos + offset];

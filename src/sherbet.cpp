@@ -4,6 +4,7 @@
 #include <sstream>
 
 #include "lexer/lexer.hpp"
+#include "parser/parser.hpp"
 
 int main(int argc, char** argv) {
 	if (argc == 1) {
@@ -51,5 +52,7 @@ Usage:
 		}
 		return -1;
 	}
+
+	Parser parser(lexer.tokens);
 	return 0;
 }

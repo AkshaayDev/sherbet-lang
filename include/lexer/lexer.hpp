@@ -10,7 +10,8 @@ struct LexerError {
 	std::string message;
 	int line;
 	int col;
-	LexerError(std::string message, int line, int col);
+	LexerError(std::string message, int line, int col):
+		message(message), line(line), col(col) {}
 };
 
 class Lexer {
@@ -35,7 +36,8 @@ private:
 public:
 	std::vector<Token> tokens;
 	std::vector<LexerError> lexerErrors;
-	Lexer(std::string_view input);
+	Lexer(std::string_view input):
+		input(input), pos(0), line(1), col(1) {}
 	void tokenize();
 };
 
