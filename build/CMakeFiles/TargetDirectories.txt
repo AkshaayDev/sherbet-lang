@@ -1,3 +1,0 @@
-/home/akshaay/Desktop/Code/sherbet-lang/build/CMakeFiles/sherbet.dir
-/home/akshaay/Desktop/Code/sherbet-lang/build/CMakeFiles/edit_cache.dir
-/home/akshaay/Desktop/Code/sherbet-lang/build/CMakeFiles/rebuild_cache.dir

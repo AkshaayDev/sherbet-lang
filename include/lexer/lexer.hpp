@@ -1,24 +1,10 @@
 #ifndef LEXER_HPP
 #define LEXER_HPP
 
-#include <fstream>
-#include <unordered_set>
 #include <string>
 #include <vector>
 #include <string_view>
-
-enum class TokenType;
-
-extern std::unordered_set<std::string> keywords;
-extern std::unordered_set<char> symbols;
-
-struct Token {
-	TokenType type;
-	std::string_view val;
-	int line;
-	int col;
-	Token(TokenType type, std::string_view val, int line, int col);
-};
+#include "lexer/token.hpp"
 
 struct LexerError {
 	std::string message;

@@ -1,24 +1,18 @@
-#include "lexer/lexer.hpp"
+#include <string>
+#include <vector>
+#include <string_view>
+#include <unordered_set>
 #include <cctype>
+#include "lexer/lexer.hpp"
+#include "lexer/token.hpp"
 
-enum class TokenType {
-	KEYWORD,
-	IDENTIFIER,
-	STRING,
-	TOKEN_EOF,
-};
-
-std::unordered_set<std::string> keywords = {
+static const std::unordered_set<std::string> keywords = {
 	"echo",
 };
-std::unordered_set<char> symbols = {
+static const std::unordered_set<char> symbols = {
 	'#',
 	'\'',
 };
-
-// --- Token struct definition ---
-Token::Token(TokenType type, std::string_view val, int line, int col)
-	: type(type), val(val), line(line), col(col) {}
 
 // --- LexerError struct definition ---
 LexerError::LexerError(std::string message, int line, int col)
@@ -40,7 +34,6 @@ bool Lexer::eof(int offset) {
 }
 
 Token Lexer::nextToken() {
-	// Implementation of tokenization logic goes here
 	while (!eof()) {
 		if (std::isspace(peek())) {
 			skipWhitespace();

@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/sherbet.dir/src/sherbet.cpp.o CMakeFiles/sherbet.dir/src/lexer/lexer.cpp.o -o sherbet 

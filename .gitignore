@@ -1,2 +1,2 @@
-# Ignore output file
-sherbet
+# Ignore build files
+build/
