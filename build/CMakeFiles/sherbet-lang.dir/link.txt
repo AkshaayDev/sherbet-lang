@@ -1,0 +1,1 @@
+/usr/bin/c++ "CMakeFiles/sherbet-lang.dir/src/sherbet.cpp.o" "CMakeFiles/sherbet-lang.dir/src/lexer/lexer.cpp.o" -o sherbet-lang 

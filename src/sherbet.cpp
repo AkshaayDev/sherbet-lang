@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "lexer.cpp"
+#include "lexer/lexer.hpp"
 
 int main(int argc, char** argv) {
 	if (argc == 1) {
@@ -53,6 +53,3 @@ Usage:
 	}
 	return 0;
 }
-
-// Compile command: g++ sherbet.cpp -std=c++17 -o sherbet
-// Run command: ./sherbet main.sb
