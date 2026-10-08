@@ -7,6 +7,7 @@ enum class TokenType {
 	KEYWORD,
 	IDENTIFIER,
 	STRING,
+	TERMINATOR,
 	TOKEN_EOF,
 };
 

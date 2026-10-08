@@ -22,8 +22,9 @@ private:
 	int col;
 
 	// Helper functions
-	char peek(int offset = 0);
-	bool eof(int offset = 0);
+	inline char peek(int offset = 0);
+	inline bool eof(int offset = 0);
+	inline void addTerminator();
 
 	// Tokenization functions
 	Token nextToken();

@@ -25,6 +25,12 @@ bool Lexer::eof(int offset) {
 	return pos + offset >= input.size();
 }
 
+void Lexer::addTerminator() {
+	if (!tokens.empty() && (tokens.back().type != TokenType::TERMINATOR)) {
+		tokens.emplace_back(TokenType::TERMINATOR, "", line, col);
+	}
+}
+
 Token Lexer::nextToken() {
 	while (!eof()) {
 		if (std::isspace(peek())) {
@@ -66,18 +72,19 @@ Token Lexer::tokenizeString() {
 		col++;
 	}
 	std::string_view val;
+	val = input.substr(startPos, pos - startPos);
 	if (eof() || peek() == '\n') {
 		lexerErrors.emplace_back("Unterminated string literal", startLine, startCol);
 	} else {
 		pos++; col++;
 	}
-	val = input.substr(startPos, pos - startPos);
 	return Token(TokenType::STRING, val, startLine, startCol);
 }
 
 void Lexer::skipWhitespace() {
 	while (std::isspace(peek())) {
 		if (peek() == '\n') {
+			addTerminator();
 			line++;
 			col = 1;
 		} else {
@@ -94,6 +101,7 @@ void Lexer::skipComment() {
 				pos++;
 				col++;
 			}
+			addTerminator();
 		} else {
 			// Multi-line comment
 			int startLine = line, startCol = col;
@@ -106,6 +114,7 @@ void Lexer::skipComment() {
 					break;
 				}
 				if (peek() == '\n') {
+					addTerminator();
 					line++;
 					col = 1;
 				} else {
